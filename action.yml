@@ -1,0 +1,12 @@
+name: 'Release Info'
+description: 'Generates Release info based on the build'
+outputs:
+  versionNumber:
+    description: 'The calculated version number'
+  versionDescription:
+    description: 'Full version number including label'
+  releaseChannel:
+    description: 'The Octopus release channel'
+runs:
+  using: 'node12'
+  main: 'index.js'
