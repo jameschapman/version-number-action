@@ -38,7 +38,7 @@ try {
     core.setOutput("versionNumber", versionNumber);
     core.setOutput("versionNumberFull", versionNumberFull)
     core.setOutput("releaseChannel", channel);
-    console.log(`Set versionNumber as ${versionNumber}, versionDescription as ${versionDescription} and release channel as ${channel}`);
+    console.log(`Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull} and release channel as ${channel}`);
 
 } catch (error) {
     core.setFailed(error.message);
