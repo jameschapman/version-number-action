@@ -12,22 +12,31 @@ try {
 
   const labelFromBranch = (branch) => {
     let label = branch.substring(branch.lastIndexOf("/") + 1);
-    return label.replace(/[^a-zA-Z0-9]/g, "."); // replace any special characters with . and set as the label, e.g. abc.123 becomes abc.123
+    return label.replace(/[^a-zA-Z0-9]/g, "."); // replace any special characters with . and set as the label, e.g. abc-123 becomes abc.123
+  };
+
+  const tagFromBranch = (branch) => {
+    let label = branch.substring(branch.lastIndexOf("/") + 1);
+    return label.replace(/[^a-zA-Z0-9]/g, "-"); // replace any special characters with . and set as the label, e.g. abc.123 becomes abc-123
   };
 
   let isDevelopPush = context.ref.startsWith("refs/heads/develop/");
   let isReleasePush = context.ref.startsWith("refs/heads/release/");
 
   let label = ""; // the label forms the final part of the version number, e.g. 1.0.0.0-{label}
+  let tab = "";
   let channel = "";
   if (isDevelopPush) {
     label = labelFromBranch(context.ref);
+    tag = tagFromBranch(context.ref);
     channel = "Develop";
   } else if (isReleasePush) {
     label = labelFromBranch(context.ref);
+    tag = tagFromBranch(context.ref);
     channel = "Release";
   } else {
     label = labelFromBranch(context.ref);
+    tag = tagFromBranch(context.ref);
     channel = "Feature Branches";
   }
 
@@ -39,8 +48,9 @@ try {
   core.setOutput("versionNumberFull", versionNumberFull);
   core.setOutput("releaseChannel", channel);
   core.setOutput("label", label);
+  core.setOutput("tag", tag);
   console.log(
-    `Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull}, label as ${label} and release channel as ${channel}`
+    `Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull}, label as ${label}, tag as ${tag} and release channel as ${channel}`
   );
 } catch (error) {
   core.setFailed(error.message);

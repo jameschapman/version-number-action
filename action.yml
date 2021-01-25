@@ -8,7 +8,9 @@ outputs:
   releaseChannel:
     description: "The Octopus release channel"
   label:
-    description: "Code friendly label based on the branch, e.g master, test123, etc."
+    description: "Label representing the branch"
+  tag:
+    description: "Url friendly tag based on the branch, e.g master, test-123, etc."
 runs:
   using: "node12"
   main: "index.js"
