@@ -1,12 +1,14 @@
-name: 'Release Info'
-description: 'Generates Release info based on the build'
+name: "Release Info"
+description: "Generates Release info based on the build"
 outputs:
   versionNumber:
-    description: 'The calculated version number'
+    description: "The calculated version number"
   versionDescription:
-    description: 'Full version number including label'
+    description: "Full version number including label"
   releaseChannel:
-    description: 'The Octopus release channel'
+    description: "The Octopus release channel"
+  label:
+    description: "Code friendly label based on the branch, e.g master, test123, etc."
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: "node12"
+  main: "index.js"
