@@ -1,5 +1,26 @@
 name: "Release Info"
 description: "Generates Release info based on the build"
+inputs:
+  main-branch-name-prefix:
+    description: 'The name of the primary branch used in Git'
+    default: 'develop'
+    required: false
+  release-branch-name-prefix:
+    description: 'The name of the release branch used in Git'
+    default: 'release'
+    required: false
+  main-channel-name:
+    description: 'The Octopus channel primary branch commits go to'
+    default: 'Develop'
+    required: false
+  release-channel-name:
+    description: 'The Octopus channel releases branch commit go to'
+    default: 'Release'
+    required: false
+  feature-channel-name:
+    description: 'The Octopus channel feature branch commits go to'
+    default: 'Feature Branches'
+    required: false
 outputs:
   versionNumber:
     description: "The calculated version number"
