@@ -17,17 +17,15 @@ try {
   };
   const mainBranchName = core.getInput("main-branch-name-prefix");
   const mainChannel = core.getInput("main-channel-name");
-  const releaseBranchName =
-    core.getInput("release-branch-name-prefix");
+  const releaseBranchName = core.getInput("release-branch-name-prefix");
   const releaseChannel = core.getInput("release-channel-name");
+  const versionPrefix = core.getInput("version-prefix");
  
   let isDevelopPush = context.ref.startsWith(`refs/heads/${mainBranchName}/`);
-  let isReleasePush = context.ref.startsWith(
-    `refs/heads/${releaseBranchName}/`
-  );
+  let isReleasePush = context.ref.startsWith(`refs/heads/${releaseBranchName}/`);
   let label = ""; // the label forms the final part of the version number, e.g. 1.0.0.0-{label}
   let tag = "";
-  let channel = "";
+  
   if (isDevelopPush) {
     label = labelFromBranch(context.ref);
     tag = tagFromBranch(context.ref);
@@ -41,18 +39,14 @@ try {
     tag = tagFromBranch(context.ref);
     channel = core.getInput("feature-channel-name");
   }
-  let versionNumber = `1.0.1.${context.runNumber}`;
-  let versionNumberFull = `1.0.1.${
-    context.runNumber
-  }-${label}.${context.sha.substring(0, 5)}`;
+  let versionNumber = `${versionPrefix}.${context.runNumber}`;
+  let versionNumberFull = `${versionPrefix}.${context.runNumber}-${label}.${context.sha.substring(0, 5)}`;
   core.setOutput("versionNumber", versionNumber);
   core.setOutput("versionNumberFull", versionNumberFull);
   core.setOutput("releaseChannel", channel);
   core.setOutput("label", label);
   core.setOutput("tag", tag);
-  console.log(
-    `Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull}, label as ${label}, tag as ${tag} and release channel as ${channel}`
-  );
+  console.log(`Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull}, label as ${label}, tag as ${tag} and release channel as ${channel}`);
 } catch (error) {
   core.setFailed(error.message);
 }

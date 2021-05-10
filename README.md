@@ -20,16 +20,19 @@ The Octopus channel name for release branch commits
 
 The Octopus channel name for feature branch commits, i.e. those not in main or release branches
 
+### `version-prefix`
+
+The version prefix, in the form of <mayor>.<minor>.<patch> . Example: 1.0.0
 
 ## Outputs
 
 ### `versionNumber`
 
-The calculated version number
+The calculated version number. Pattern: <version-prefix>.<runNumber>. Example: 1.0.0.144
 
 ### `versionNumberFull`
 
-The calculated version number, including branch and sha
+The calculated version number, including branch and sha. Pattern: <version-prefix>.<runNumber>.<label>.<sha-first-6-chars> Example: 1.0.0.144-BRANCHNAME.a342f1
 
 ### `releaseChannel`
 
