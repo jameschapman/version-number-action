@@ -22,13 +22,13 @@ The Octopus channel name for feature branch commits, i.e. those not in main or r
 
 ### `version-prefix`
 
-The version prefix, in the form of <mayor>.<minor>.<patch> . Example: 1.0.0
+The version prefix, in the form of mayor.minor.patch . Example: 1.0.0
 
 ## Outputs
 
 ### `versionNumber`
 
-The calculated version number. Pattern: <version-prefix>.<runNumber>. Example: 1.0.0.144
+The calculated version number. Pattern: version-prefix.runNumber. Example: 1.0.0.144
 
 ### `versionNumberFull`
 

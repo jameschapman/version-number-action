@@ -21,6 +21,10 @@ inputs:
     description: 'The Octopus channel feature branch commits go to'
     default: 'Feature Branches'
     required: false
+  version-prefix:
+    description: 'The version prefix, in the form of mayor.minor.patch . Example: 1.0.0'
+    default: '1.0.0'
+    required: false
 outputs:
   versionNumber:
     description: "The calculated version number"
