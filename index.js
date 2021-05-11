@@ -21,8 +21,8 @@ try {
   const releaseChannel = core.getInput("release-channel-name");
   const versionPrefix = core.getInput("version-prefix");
  
-  let isDevelopPush = context.ref.startsWith(`refs/heads/${mainBranchName}/`);
-  let isReleasePush = context.ref.startsWith(`refs/heads/${releaseBranchName}/`);
+  let isDevelopPush = context.ref.startsWith(`refs/heads/${mainBranchName}`);
+  let isReleasePush = context.ref.startsWith(`refs/heads/${releaseBranchName}`);
   let label = ""; // the label forms the final part of the version number, e.g. 1.0.0.0-{label}
   let tag = "";
   
