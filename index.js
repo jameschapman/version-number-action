@@ -15,7 +15,7 @@ try {
     let label = branch.substring(branch.lastIndexOf("/") + 1);
     return label.replace(/[^a-zA-Z0-9]/g, "-"); // replace any special characters with . and set as the label, e.g. abc.123 becomes abc-123
   };
-  const mainBranchName = core.getInput("main-branch-name-prefix");
+  const mainBranchName = core.getInput("main-branch-name");
   const mainChannel = core.getInput("main-channel-name");
   const releaseBranchName = core.getInput("release-branch-name-prefix");
   const releaseChannel = core.getInput("release-channel-name");
