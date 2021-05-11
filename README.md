@@ -4,7 +4,7 @@ This action generates a version number based on the context of the action being 
 
 ## Inputs
 
-### `main-branch-name-prefix`
+### `main-branch-name`
 
 The name of the primary branch used in Git, e.g. master/main/develop
 
