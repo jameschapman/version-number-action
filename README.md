@@ -32,7 +32,7 @@ The calculated version number. Pattern: version-prefix.runNumber. Example: 1.0.0
 
 ### `versionNumberFull`
 
-The calculated version number, including branch and sha. Pattern: <version-prefix>.<runNumber>.<label>.<sha-first-6-chars> Example: 1.0.0.144-BRANCHNAME.a342f1
+The calculated version number, including branch and sha. Pattern: version-prefix.runNumber-label-shaFirst7Chars-runId Example: 1.0.0.144-BRANCHNAME-a342f12-233421
 
 ### `releaseChannel`
 

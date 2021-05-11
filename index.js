@@ -40,7 +40,7 @@ try {
     channel = core.getInput("feature-channel-name");
   }
   let versionNumber = `${versionPrefix}.${context.runNumber}`;
-  let versionNumberFull = `${versionPrefix}.${context.runNumber}-${label}.${context.sha.substring(0, 5)}`;
+  let versionNumberFull = `${versionPrefix}.${context.runNumber}-${label}-${context.sha.substring(0, 7)}-${context.runId}`;
   core.setOutput("versionNumber", versionNumber);
   core.setOutput("versionNumberFull", versionNumberFull);
   core.setOutput("releaseChannel", channel);
