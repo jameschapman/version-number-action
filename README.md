@@ -4,7 +4,7 @@ This action generates a version number based on the context of the action being 
 
 ## Inputs
 
-### `main-branch-name-prefix`
+### `main-branch-name`
 
 The name of the primary branch used in Git, e.g. master/main/develop
 
@@ -32,7 +32,7 @@ The calculated version number. Pattern: version-prefix.runNumber. Example: 1.0.0
 
 ### `versionNumberFull`
 
-The calculated version number, including branch and sha. Pattern: <version-prefix>.<runNumber>.<label>.<sha-first-6-chars> Example: 1.0.0.144-BRANCHNAME.a342f1
+The calculated version number, including branch and sha. Pattern: version-prefix.runNumber-label-shaFirst7Chars-runId Example: 1.0.0.144-BRANCHNAME-a342f12-233421
 
 ### `releaseChannel`
 

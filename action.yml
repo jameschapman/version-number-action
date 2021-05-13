@@ -1,7 +1,7 @@
 name: "Release Info"
 description: "Generates Release info based on the build"
 inputs:
-  main-branch-name-prefix:
+  main-branch-name:
     description: 'The name of the primary branch used in Git'
     default: 'develop'
     required: false
