@@ -1,5 +1,5 @@
-const core = require("@actions/core");
-const github = require("@actions/github");
+import * as core from "@actions/core";
+import * as github from "@actions/github";
 try {
   const context = github.context;
   // Get the JSON webhook payload for the event that triggered the workflow
@@ -25,6 +25,7 @@ try {
   let isReleasePush = context.ref.startsWith(`refs/heads/${releaseBranchName}/`);
   let label = ""; // the label forms the final part of the version number, e.g. 1.0.0.0-{label}
   let tag = "";
+  let channel = "";
   
   if (isDevelopPush) {
     label = labelFromBranch(context.ref);
@@ -48,5 +49,5 @@ try {
   core.setOutput("tag", tag);
   console.log(`Set versionNumber as ${versionNumber}, versionDescription as ${versionNumberFull}, label as ${label}, tag as ${tag} and release channel as ${channel}`);
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(error instanceof Error ? error.message : String(error));
 }

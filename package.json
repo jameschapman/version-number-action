@@ -2,7 +2,11 @@
   "name": "version-number-action",
   "version": "2.1.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +22,7 @@
   },
   "homepage": "https://github.com/jameschapman/version-number-action#readme",
   "dependencies": {
-    "@actions/core": "1.10.0",
-    "@actions/github": "5.1.1"
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1"
   }
 }
